@@ -11,6 +11,10 @@ class Price{
         this.strategy = strategy;
     }
 
+    private void logGetValueStrategy() {
+        System.out.println(name + "'s value calculated " + this.strategy);
+    }
+
     public double getValue(int number){
         double value = 0.0;
         try{
@@ -18,7 +22,7 @@ class Price{
         } catch(Exception e){
             System.out.println(name+e);
         }
-        System.out.println(name + "'s value calculated " + this.strategy);
+        logGetValueStrategy();
         return value;
     }
 
@@ -29,7 +33,7 @@ class Price{
         } catch(Exception e){
             System.out.println(name+e);
         }
-        System.out.println(name + "'s value calculated '" + this.strategy);
+        logGetValueStrategy();
         return value;
     }
 
@@ -152,7 +156,5 @@ class main{
 
         Price socks = new Price("Socks", new CalculateValueStrategy(new CalculateBuyXTogether(4)), 10.5);
         System.out.println(socks.getValue(30));
-
     }
-
 }
